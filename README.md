@@ -1,4 +1,4 @@
-# prometheus-client-ruby-tracer
+# prometheus-client-tracer-ruby [![CircleCI](https://circleci.com/gh/lawrencejones/prometheus-client-tracer-ruby.svg?style=svg)](https://circleci.com/gh/lawrencejones/prometheus-client-tracer-ruby)
 
 This gem provides an interface for tracing long-running duration measurements
 using the Prometheus client.
