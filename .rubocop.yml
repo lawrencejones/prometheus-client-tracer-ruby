@@ -1,0 +1,25 @@
+---
+inherit_gem:
+  gc_ruboconfig: rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.4
+
+Metrics/MethodLength:
+  Max: 15
+
+RSpec/MultipleExpectations:
+  Max: 3
+
+Style/RescueStandardError:
+  Exclude:
+    - "*/**/*_spec.rb"
+
+Naming/UncommunicativeMethodParamName:
+  AllowedNames:
+    # These are the default allowed names, set by Rubocop
+    - io
+    - id
+    # These are some custom names that we want to allow, since they aren't
+    # uncommunicative - they're actually rather meaningful!
+    - as
