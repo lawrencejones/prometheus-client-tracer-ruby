@@ -1,13 +1,12 @@
 # prometheus-client-tracer-ruby [![CircleCI](https://circleci.com/gh/lawrencejones/prometheus-client-tracer-ruby.svg?style=svg)](https://circleci.com/gh/lawrencejones/prometheus-client-tracer-ruby)
 
+https://blog.lawrencejones.dev/incremental-measurement/
+
 This gem provides an interface for tracing long-running duration measurements
 using the Prometheus client. By updating the associated metric as part of the
 Prometheus /metrics endpoint, the increment is spread evenly over the scrapes
-that occur while the operation is in process, instead of applying one massive
+that occur while the operation is in process, instead of applying one large
 increment at the end.
-
-This means you can trust your metrics will be accurate, even if the operations
-you're measuring far exceed your scrape duration.
 
 ## Why?
 
