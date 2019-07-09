@@ -8,6 +8,10 @@ Prometheus /metrics endpoint, the increment is spread evenly over the scrapes
 that occur while the operation is in process, instead of applying one large
 increment at the end.
 
+If you find this useful and would prefer it to live within the official
+Prometheus Ruby client, please drop your feedback as a comment here:
+https://github.com/prometheus/client_ruby/pull/135
+
 ## Why?
 
 One of the most common observability requirements is to trace the amount of time
