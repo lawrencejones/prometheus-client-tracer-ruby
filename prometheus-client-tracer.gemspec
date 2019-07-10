@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "gc_ruboconfig", "= 2.4.0"
   spec.add_development_dependency "pry", "~> 0.10"
   spec.add_development_dependency "rspec", "~> 3.8"
+  spec.add_development_dependency "ruby-prof", "~> 0.18"
 end

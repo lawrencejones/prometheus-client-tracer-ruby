@@ -45,6 +45,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-rspec (1.33.0)
       rubocop (>= 0.60.0)
+    ruby-prof (0.18.0)
     ruby-progressbar (1.10.1)
     unicode-display_width (1.6.0)
 
@@ -56,6 +57,7 @@ DEPENDENCIES
   prometheus-client-tracer!
   pry (~> 0.10)
   rspec (~> 3.8)
+  ruby-prof (~> 0.18)
 
 BUNDLED WITH
    2.0.1

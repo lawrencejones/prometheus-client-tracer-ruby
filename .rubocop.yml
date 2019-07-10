@@ -5,6 +5,9 @@ inherit_gem:
 AllCops:
   TargetRubyVersion: 2.4
 
+Style/ParallelAssignment:
+  Enabled: false
+
 Metrics/MethodLength:
   Max: 15
 
