@@ -33,8 +33,21 @@ value only after the task has finished.  Graphs visualising how time is spent
 will show no activity while the task was running and then an impossible burst
 just as things finish.
 
-To avoid this time of measurement bias, this commit introduces a metric tracer
-that manages updating metrics associated with long-running tasks.  Users will
+When jobs run quickly, your graphs will look reasonable. An example with ten
+workers constantly working small jobs, each worker reports one second of work
+per second, as the world should be.
+
+![Work per worker with small jobs](res/bias-0_1-1_0.png)
+
+As soon as job duration increases, the bias becomes significant, and the graph
+starts departing from reality:
+
+![Work per worker with long-running jobs](res/bias-0_1-30_0.png)
+
+## How?
+
+To avoid this time of measurement bias, this gem provides a metric tracer
+that manages updating metrics associated with long-running tasks. Users will
 begin a trace, do work, and while the work is on-going any calls to the tracer
 collect method will incrementally update the associated metric with elapsed
 time.
@@ -45,9 +58,9 @@ tracer is thread safe and designed to be as lightweight as possible- it should
 hopefully provide no performance hit and be preferable for tracing durations of
 most lengths, provided you don't exceed hundreds of on-going traces.
 
-For easy use, the Prometheus client initialises a global tracer in the same vein
-as the global registry. Most users are going to want to use a tracer without
-initialising a handle in their own code, and can do so like this:
+For easy use, we patch the Prometheus client with a global tracer, following the
+example of the global registry. Most users will want to use tracers without
+initialising one in their own code, and can do so like this:
 
 ```ruby
 def run
@@ -57,9 +70,10 @@ def run
 end
 ```
 
-By default, users who do this will see their metrics update just as frequently
-as the original implementation. For the incremental measurement to work, they
-must use a TraceCollector to trigger a collection just prior to serving metrics:
+Without any additional configuration, users who do this will see their metrics
+update just as frequently as the naive implementation. For the incremental
+measurement to work, they must use a `TraceCollector` to trigger a collection
+just prior to serving metrics:
 
 ```ruby
 # By default, collect the global tracer
