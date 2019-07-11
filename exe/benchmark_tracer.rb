@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# This file can be used to validate the performance of the tracer is not incomparible to a
-# naive tracing implementation. The performance will degrade linerarly with the number of
+# This file can be used to validate the performance of the tracer is not incomparable to a
+# naive tracing implementation. The performance will degrade linearly with the number of
 # on-going traces, however a modern i7 can achieve trace throughput:
 #
 #   naive: 333k/s
