@@ -21,7 +21,7 @@ describe Prometheus::Client::Tracer do
     # The tracer is normally passed a block that manipulates @now.
     subject(:trace) { tracer.trace(metric, labels, &trace_block) }
 
-    let(:labels) { { worker: 1 } }
+    let(:labels) { { worker: "1" } }
     let(:trace_block) { -> { @now += 1.0 } }
 
     before do

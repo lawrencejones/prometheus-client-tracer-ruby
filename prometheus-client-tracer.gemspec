@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^spec/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "prometheus-client", "~> 0.10.0.alpha"
+  spec.add_dependency "prometheus-client", "~> 1.0"
 
   spec.add_development_dependency "gc_ruboconfig", "= 2.4.0"
   spec.add_development_dependency "pry", "~> 0.10"
