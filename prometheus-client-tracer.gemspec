@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "prometheus-client-tracer"
-  spec.version       = "1.0.0"
+  spec.version       = "1.1.0"
   spec.summary       = "Tracer for accurate duration tracking with Prometheus metrics"
   spec.authors       = %w[me@lawrencejones.dev]
   spec.homepage      = "https://github.com/lawrencejones/prometheus-client-tracer"
